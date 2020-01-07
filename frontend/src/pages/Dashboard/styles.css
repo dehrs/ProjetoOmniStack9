@@ -13,7 +13,7 @@ ul.spot-list li {
 }
 
 ul.spot-list li header {
-  width: 100%;
+  width: 60%;
   height: 120px;
   background-size: cover;
   border-radius: 4px;
@@ -33,6 +33,7 @@ ul.spot-list li span {
 ul.notifications {
   list-style: none;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 ul.notifications li {
@@ -46,6 +47,7 @@ ul.notifications li button {
   font-weight: bold;
   margin-top: 10px;
   cursor: pointer;
+  background: transparent;
 }
 
 ul.notifications li button.accept {
@@ -54,4 +56,12 @@ ul.notifications li button.accept {
 
 ul.notifications li button.reject {
   color: #e55e5e;
+}
+
+ul.notifications li button.accept:hover {
+  transform: scale(1, 1.2);
+}
+
+ul.notifications li button.reject:hover {
+  transform: scale(1, 1.2);
 }

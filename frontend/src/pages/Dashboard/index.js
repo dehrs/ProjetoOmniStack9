@@ -19,6 +19,7 @@ export default function Dashboard() {
   const [spots, setSpots] = useState([]);
   const [requests, setRequests] = useState([]);
 
+  console.log(requests);
   useEffect(() => {
     socket.on("booking_request", data => {
       setRequests([...requests, data]);
@@ -37,6 +38,18 @@ export default function Dashboard() {
     loadSpots();
   }, [user_id]);
 
+  async function handleAccept(id) {
+    await api.post(`/bookings/${id}/approval`);
+
+    setRequests(requests.filter(request => request._id !== id));
+  }
+
+  async function handleReject(id) {
+    await api.post(`/bookings/${id}/rejections`);
+
+    setRequests(requests.filter(request => request._id !== id));
+  }
+
   return (
     <>
       <ul className="notifications">
@@ -48,8 +61,18 @@ export default function Dashboard() {
               <strong> {request.date}</strong>
             </p>
 
-            <button className="accept">Aceitar</button>
-            <button className="reject">Rejeitar</button>
+            <button
+              className="accept"
+              onClick={() => handleAccept(request._id)}
+            >
+              Aceitar
+            </button>
+            <button
+              className="reject"
+              onClick={() => handleReject(request._id)}
+            >
+              Rejeitar
+            </button>
           </li>
         ))}
       </ul>
