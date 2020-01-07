@@ -19,7 +19,6 @@ export default function Dashboard() {
   const [spots, setSpots] = useState([]);
   const [requests, setRequests] = useState([]);
 
-  console.log(requests);
   useEffect(() => {
     socket.on("booking_request", data => {
       setRequests([...requests, data]);

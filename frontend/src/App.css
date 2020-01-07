@@ -87,6 +87,7 @@ button {
   background: #f05a5b;
   color: #fff;
   cursor: pointer;
+  margin: 2px;
 }
 
 .content button.btn:hover {
