@@ -17,8 +17,8 @@ export default function SpotList({ tech, history }) {
     loadSpots();
   }, [tech]);
 
-  function navigation() {
-    history.push("/solicitarReserva");
+  function navigation(id) {
+    history.push(`/solicitarReserva/${id}`);
   }
   return (
     <>
@@ -31,7 +31,9 @@ export default function SpotList({ tech, history }) {
             <header style={{ backgroundImage: `url(${spot.thumbnail_url})` }} />
             <strong>{spot.company}</strong>
             <span>{spot.price ? `R$ ${spot.price}/dia` : "Gratuito"}</span>
-            <button onClick={navigation}>Solicitar Reserva</button>
+            <button onClick={() => navigation(spot._id)}>
+              Solicitar Reserva
+            </button>
           </li>
         ))}
       </ul>

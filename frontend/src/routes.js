@@ -19,7 +19,7 @@ export default function Routes() {
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/new" component={New} />
         <Route path="/list" component={List} />
-        <Route path="/solicitarReserva" component={Reserva} />
+        <Route path="/solicitarReserva/:id" component={Reserva} />
       </Switch>
     </BrowserRouter>
   );
