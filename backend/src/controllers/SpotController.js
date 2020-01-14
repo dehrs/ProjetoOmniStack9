@@ -21,14 +21,16 @@ module.exports = {
       return res.status(400).json({ error: "Usuário não existe" });
     }
 
-    const spot = await Spot.create({
-      user: user_id,
-      thumbnail: filename,
-      company,
-      techs: techs.split(",").map(tech => tech.trim()),
-      price
-    });
+    // const spot = await Spot.create({
+    //   user: user_id,
+    //   thumbnail: filename,
+    //   company,
+    //   techs: techs.split(",").map(tech => tech.trim()),
+    //   price
+    // });
 
-    return res.json(spot);
+    console.log(filename);
+
+    return res.json(req.file);
   }
 };
